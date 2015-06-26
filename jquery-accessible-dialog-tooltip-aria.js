@@ -68,9 +68,10 @@ $(document).ready(function(){
                   }
          $tooltip_code += '</div></dialog>';
          
+         // Chrome bug
          setTimeout(function(){ $( $tooltip_code ).insertAfter($this); }, 50);
-         
-         $('#js-tooltip-close').focus();
+         // fix for Chrome bug resolution…
+         setTimeout(function(){ $('#js-tooltip-close').focus(); }, 51);
          
          $('#' + $tooltip_starter_id).addClass('is-active');
 
