@@ -68,7 +68,7 @@ $(document).ready(function(){
                   }
          $tooltip_code += '</div></dialog>';
          
-         $( $tooltip_code ).insertAfter($this);
+         setTimeout(function(){ $( $tooltip_code ).insertAfter($this); }, 50);
          
          $('#js-tooltip-close').focus();
          
