@@ -13,14 +13,14 @@ $(document).ready(function(){
       $js_tooltips.each( function(index_to_expand) {
           var $this = $(this) ,
               options = $this.data(),
-              $tooltip_prefix_class = options.tooltipPrefixClass || '',
+              $tooltip_prefix_class = typeof options.tooltipPrefixClass !== 'undefined' ? options.tooltipPrefixClass + '-' : '',
               index_lisible = index_to_expand+1;
           
           $this.attr({
                   'id' : 'label_tooltip_' + index_lisible
                 });
           // wraps element in a container
-          $this.wrap('<span class="' + $tooltip_prefix_class + '-container"></span>');
+          $this.wrap('<span class="' + $tooltip_prefix_class + 'container"></span>');
 
       });
 
@@ -39,7 +39,7 @@ $(document).ready(function(){
       .on( 'click', '.js-tooltip', function( event ) {
          var $this = $(this),
              options = $this.data(),
-             $tooltip_prefix_class = options.tooltipPrefixClass || '',
+             $tooltip_prefix_class = typeof options.tooltipPrefixClass !== 'undefined' ? options.tooltipPrefixClass + '-' : '',
              $tooltip_text = options.tooltipText || '',
              $tooltip_content_id = typeof options.tooltipContentId !== 'undefined' ? '#' + options.tooltipContentId : '',
              $tooltip_title = options.tooltipTitle || '',
@@ -53,10 +53,10 @@ $(document).ready(function(){
          $('.js-tooltip').removeClass('is-active');
          
          // insert code at the end
-         $tooltip_code = '<dialog id="js-tooltip" class="js-dialogtooltip ' + $tooltip_prefix_class + '-tooltip" data-launched-by="click" role="dialog" aria-labelledby="tooltip-title"><div role="document">';
-         $tooltip_code += '<button id="js-tooltip-close" class="' + $tooltip_prefix_class + '-tooltip__close" data-focus-back="' + $tooltip_starter_id + '" title="' + $tooltip_close_title + '">' + $tooltip_close_text + '</button>';
+         $tooltip_code = '<dialog id="js-tooltip" class="js-dialogtooltip ' + $tooltip_prefix_class + 'tooltip" data-launched-by="click" role="dialog" aria-labelledby="tooltip-title"><div role="document">';
+         $tooltip_code += '<button id="js-tooltip-close" class="' + $tooltip_prefix_class + 'tooltip__close" data-focus-back="' + $tooltip_starter_id + '" title="' + $tooltip_close_title + '">' + $tooltip_close_text + '</button>';
          if ($tooltip_title !== ''){
-            $tooltip_code += '<h1 id="tooltip-title" class="tooltip-title ' + $tooltip_prefix_class + '-tooltip__title">' + $tooltip_title + '</h1>';
+            $tooltip_code += '<h1 id="tooltip-title" class="tooltip-title ' + $tooltip_prefix_class + 'tooltip__title">' + $tooltip_title + '</h1>';
             }
          if ($tooltip_text !== ''){
             $tooltip_code += '<p>' + $tooltip_text + '</p>';
