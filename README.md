@@ -1,6 +1,6 @@
-# jQuery Simple and Accessible Modal Window
+# jQuery Simple and Accessible Dialog Tooltip Window
 
-This jQuery plugin provides you a shiny and accessible modal window, using ARIA.
+This jQuery plugin provides you a shiny and accessible dialog tooltip window, using ARIA.
 
 A presentation page and demo is here: http://a11y.nicolas-hoffmann.net/dialog-tooltip/
 
