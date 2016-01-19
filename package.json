@@ -1,0 +1,40 @@
+{
+  "title": "jQuery accessible dialog tooltip, using ARIA",
+  "name": "jquery-accessible-dialog-tolltip-aria",
+  "description": "This jQuery plugin will add a shiny and accessible modal window, using ARIA",
+  "version": "1.0.1",
+  "keywords": [
+    "Accessibility",
+    "ARIA",
+    "dialog",
+	  "tooltip",
+    "a11y",
+    "jQuery Plugin"
+  ],
+  "author": [
+    {
+      "name": "Nicolas Hoffmann",
+      "email": "dante3333@gmail.com",
+      "web": "http://www.nicolas-hoffmann.net/"
+    }
+  ],
+  "dependencies": {
+    "jquery": ">=1.0.0"
+  },
+  "bugs": {
+    "web": "https://github.com/nico3333fr/jquery-accessible-dialog-tooltip-aria/issues"
+  },
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/nico3333fr/jquery-accessible-dialog-tooltip-aria.git"
+    }
+  ],
+  "licenses": [
+    {
+      "name": "MIT",
+      "url": "https://github.com/nico3333fr/jquery-accessible-dialog-tooltip-aria/blob/master/LICENSE"
+    }
+  ],
+  "homepage": "http://a11y.nicolas-hoffmann.net/dialog-tooltip/"
+}
