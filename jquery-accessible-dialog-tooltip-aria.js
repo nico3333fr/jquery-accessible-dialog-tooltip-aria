@@ -1,7 +1,8 @@
-$(document).ready(function(){
+jQuery(document).ready(function($){
 
    /*
     * jQuery simple and accessible dialog tooltip window, using ARIA
+    * @version v1.1.1
     * Website: http://a11y.nicolas-hoffmann.net/dialog-tooltip/
     * License MIT: https://github.com/nico3333fr/jquery-accessible-dialog-tooltip-aria/blob/master/LICENSE
     */
