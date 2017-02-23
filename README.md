@@ -2,7 +2,7 @@
 
 This jQuery plugin provides you a shiny and accessible dialog tooltip window, using ARIA.
 
-A presentation page and demo is here: http://a11y.nicolas-hoffmann.net/dialog-tooltip/
+A presentation page and demo is here: https://a11y.nicolas-hoffmann.net/dialog-tooltip/
 
 ## How it works
 
@@ -25,6 +25,6 @@ Simply put <code>class="js-tooltip"</code> on a button to activate the script.
 
 Enjoy.
 
-<img src="http://www.nicolas-hoffmann.net/bordel/chuck-norris1.jpg" alt="Chuck Norris approved this" />
+<img src="https://www.nicolas-hoffmann.net/bordel/chuck-norris1.jpg" alt="Chuck Norris approved this" />
 
 P.S: this plugin is in [MIT license](https://github.com/nico3333fr/jquery-accessible-dialog-tooltip-aria/blob/master/LICENSE). It couldn't be done without the precious help of @ScreenFeedFr, @sophieschuermans, @johan_ramon, @goetsu and @romaingervois.
