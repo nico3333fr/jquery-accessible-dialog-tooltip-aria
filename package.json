@@ -2,7 +2,7 @@
   "title": "jQuery accessible dialog tooltip, using ARIA",
   "name": "jquery-accessible-dialog-tooltip-aria",
   "description": "This jQuery plugin will add a shiny and accessible dialog tooltip window, using ARIA",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "keywords": [
     "Accessibility",
     "ARIA",
@@ -30,7 +30,7 @@
       "url": "https://github.com/nico3333fr/jquery-accessible-dialog-tooltip-aria.git"
     }
   ],
-  "licenses": [
+  "license": [
     {
       "name": "MIT",
       "url": "https://github.com/nico3333fr/jquery-accessible-dialog-tooltip-aria/blob/master/LICENSE"

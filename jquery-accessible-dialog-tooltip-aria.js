@@ -2,7 +2,7 @@ jQuery(document).ready(function($){
 
    /*
     * jQuery simple and accessible dialog tooltip window, using ARIA
-    * @version v1.1.1
+    * @version v1.1.2
     * Website: http://a11y.nicolas-hoffmann.net/dialog-tooltip/
     * License MIT: https://github.com/nico3333fr/jquery-accessible-dialog-tooltip-aria/blob/master/LICENSE
     */
@@ -59,7 +59,7 @@ jQuery(document).ready(function($){
          
       // insert code at the end
       $tooltip_code = '<dialog id="js-tooltip" class="js-dialogtooltip ' + $tooltip_prefix_class + 'tooltip" data-launched-by="click" role="dialog" aria-labelledby="tooltip-title" open><div role="document">';
-      $tooltip_code += '<button id="js-tooltip-close" class="' + $tooltip_prefix_class + 'tooltip__close" data-focus-back="' + $tooltip_starter_id + '" title="' + $tooltip_close_title + '">' + $tooltip_close_text + '</button>';
+      $tooltip_code += '<button id="js-tooltip-close" class="' + $tooltip_prefix_class + 'tooltip__close" data-focus-back="' + $tooltip_starter_id + '" title="' + $tooltip_close_title + '" type="button">' + $tooltip_close_text + '</button>';
       if ($tooltip_title !== ''){
          $tooltip_code += '<h1 id="tooltip-title" class="tooltip-title ' + $tooltip_prefix_class + 'tooltip__title">' + $tooltip_title + '</h1>';
          }
