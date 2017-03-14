@@ -22,6 +22,7 @@ Simply put <code>class="js-tooltip"</code> on a button to activate the script.
 - Attribute <code>data-tooltip-title</code>: the main title of the dialog tooltip.
 - Attribute <code>data-tooltip-close-text</code>: the text of the close button in your dialog tooltip.
 - Attribute <code>data-tooltip-close-title</code>: the <code>title</code> attribute of the close button in your dialog tooltip.
+- Attribute <code>data-tooltip-close-img</code>: a path to a valid image for the close button.
 
 Enjoy.
 
