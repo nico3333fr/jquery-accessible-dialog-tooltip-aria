@@ -24,6 +24,8 @@ Simply put <code>class="js-tooltip"</code> on a button to activate the script.
 - Attribute <code>data-tooltip-close-title</code>: the <code>title</code> attribute of the close button in your dialog tooltip.
 - Attribute <code>data-tooltip-close-img</code>: a path to a valid image for the close button.
 
+Another feature: when you click on a button that launches a modal tooltip, the class <code>is-active</code> is added to this button.
+
 Enjoy.
 
 <img src="https://www.nicolas-hoffmann.net/bordel/chuck-norris1.jpg" alt="Chuck Norris approved this" />
