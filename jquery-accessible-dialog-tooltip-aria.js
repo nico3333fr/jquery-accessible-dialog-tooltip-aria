@@ -2,7 +2,7 @@ jQuery(document).ready(function($){
 
    /*
     * jQuery simple and accessible dialog tooltip window, using ARIA
-    * @version v1.1.2
+    * @version v1.3.0
     * Website: https://a11y.nicolas-hoffmann.net/dialog-tooltip/
     * License MIT: https://github.com/nico3333fr/jquery-accessible-dialog-tooltip-aria/blob/master/LICENSE
     */
@@ -35,10 +35,14 @@ jQuery(document).ready(function($){
       
   // events ------------------
   $body.on('click', function(event) {
-     var $target = $(event.target);
+     var $target = $(event.target),
+         $focus_back = $('#' + $('#js-tooltip-close').attr('data-focus-back')),
+         $dialog_tooltip = $('.js-dialogtooltip');
+
      // if click outside => close
      if ( !$target.is('.js-dialogtooltip') && !$target.is('.js-tooltip') && !$target.parents(".js-dialogtooltip").is(".js-dialogtooltip")) {
-         $('.js-dialogtooltip').remove();
+         $dialog_tooltip.remove();
+         $focus_back.removeClass('is-active');
          }
   })
   .on( 'click', '.js-tooltip', function( event ) {
@@ -50,6 +54,7 @@ jQuery(document).ready(function($){
           $tooltip_title = options.tooltipTitle || '',
           $tooltip_close_text = options.tooltipCloseText || 'Close',
           $tooltip_close_title = options.tooltipCloseTitle || options.tooltipCloseText,
+          $tooltip_close_img = options.tooltipCloseImg || '',
           $tooltip_starter_id = $this.attr('id'),
           $tooltip_code;
          
@@ -59,7 +64,13 @@ jQuery(document).ready(function($){
          
       // insert code at the end
       $tooltip_code = '<dialog id="js-tooltip" class="js-dialogtooltip ' + $tooltip_prefix_class + 'tooltip" data-launched-by="click" role="dialog" aria-labelledby="tooltip-title" open><div role="document">';
-      $tooltip_code += '<button id="js-tooltip-close" class="' + $tooltip_prefix_class + 'tooltip__close" data-focus-back="' + $tooltip_starter_id + '" title="' + $tooltip_close_title + '" type="button">' + $tooltip_close_text + '</button>';
+      $tooltip_code += '<button id="js-tooltip-close" class="' + $tooltip_prefix_class + 'tooltip__close" data-focus-back="' + $tooltip_starter_id + '" title="' + $tooltip_close_title + '" type="button"><span class="' + $tooltip_prefix_class + 'tooltip__closetext__container">';
+      if ( $tooltip_close_img !== '' ){
+         $tooltip_code += '<img src="' + $tooltip_close_img + '" alt="' + $tooltip_close_text + '" class="' + $tooltip_prefix_class + 'tooltip__closeimg" />';
+      }
+      else { $tooltip_code += $tooltip_close_text; }
+      $tooltip_code += '</span></button>';
+      
       if ($tooltip_title !== ''){
          $tooltip_code += '<h1 id="tooltip-title" class="tooltip-title ' + $tooltip_prefix_class + 'tooltip__title">' + $tooltip_title + '</h1>';
          }
@@ -82,7 +93,7 @@ jQuery(document).ready(function($){
 
      event.preventDefault();
          
- })
+ })/*
  .on( 'mouseleave', '#js-tooltip', function( event ) {
       var $this = $(this),
           options = $this.data(),
@@ -93,14 +104,13 @@ jQuery(document).ready(function($){
       $close_button.click();
       $focus_back.removeClass('is-active');
              
-  });
+  })*/;
       
   // close button and esc key
   $body.on( 'click', '#js-tooltip-close', function( event ) {
       var $this = $(this),
           $tooltip_launched_by = $this.parents('#js-tooltip').attr('data-launched-by'),
           $focus_back = $('#' + $this.attr('data-focus-back'));
-             
 
       $('#js-tooltip').remove();
       $focus_back.focus();
