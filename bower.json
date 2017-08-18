@@ -3,7 +3,7 @@
   "description": "This jQuery plugin will add a shiny and accessible dialog tooltip window, using ARIA",
   "homepage": "https://a11y.nicolas-hoffmann.net/dialog-tooltip/",
   "main": "jquery-accessible-dialog-tooltip-aria.js",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "keywords": [
     "Accessibility",
     "ARIA",
