@@ -2,7 +2,7 @@ jQuery(document).ready(function($) {
 
     /*
      * jQuery simple and accessible dialog tooltip window, using ARIA
-     * @version v1.4.1
+     * @version v1.4.2
      * Website: https://a11y.nicolas-hoffmann.net/dialog-tooltip/
      * License MIT: https://github.com/nico3333fr/jquery-accessible-dialog-tooltip-aria/blob/master/LICENSE
      */
@@ -63,7 +63,7 @@ jQuery(document).ready(function($) {
             $('.js-tooltip').removeClass('is-active');
 
             // insert code at the end
-            $tooltip_code = '<dialog id="js-tooltip" class="js-dialogtooltip ' + $tooltip_prefix_class + 'tooltip" data-launched-by="click" role="dialog" aria-labelledby="tooltip-title" open aria-modal="true"><div role="document">';
+            $tooltip_code = '<dialog id="js-tooltip" class="js-dialogtooltip ' + $tooltip_prefix_class + 'tooltip" data-launched-by="click" aria-labelledby="tooltip-title" open aria-modal="true"><div role="document">';
             $tooltip_code += '<button id="js-tooltip-close" class="' + $tooltip_prefix_class + 'tooltip__close" data-focus-back="' + $tooltip_starter_id + '" title="' + $tooltip_close_title + '" type="button"><span class="' + $tooltip_prefix_class + 'tooltip__closetext__container">';
             if ($tooltip_close_img !== '') {
                 $tooltip_code += '<img src="' + $tooltip_close_img + '" alt="' + $tooltip_close_text + '" class="' + $tooltip_prefix_class + 'tooltip__closeimg" />';
