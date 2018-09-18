@@ -2,7 +2,7 @@ jQuery(document).ready(function($) {
 
     /*
      * jQuery simple and accessible dialog tooltip window, using ARIA
-     * @version v1.5.0
+     * @version v1.6.0
      * Website: https://a11y.nicolas-hoffmann.net/dialog-tooltip/
      * License MIT: https://github.com/nico3333fr/jquery-accessible-dialog-tooltip-aria/blob/master/LICENSE
      */
@@ -37,10 +37,18 @@ jQuery(document).ready(function($) {
     $body.on('click', function(event) {
             var $target = $(event.target),
                 $focus_back = $('#' + $('#js-tooltip-close').attr('data-focus-back')),
-                $dialog_tooltip = $('.js-dialogtooltip');
+                $dialog_tooltip = $('.js-dialogtooltip'),
+                id_back_content = $dialog_tooltip.attr('data-content-back-id');
 
             // if click outside => close
             if ((!$target.is('.js-dialogtooltip') && !$target.is('.js-tooltip') && !$target.closest(".js-dialogtooltip").length) || ($target.is($focus_back))) {
+                if ( id_back_content !== '' ){
+                   var $content = $('#js-tooltip-content'),
+                       $content_back_place = $('#' + id_back_content);
+
+                   $content_back_place.html($content);
+                }
+
                 $dialog_tooltip.remove();
                 $focus_back.removeClass('is-active');
             }
@@ -51,6 +59,7 @@ jQuery(document).ready(function($) {
                 $tooltip_prefix_class = typeof options.tooltipPrefixClass !== 'undefined' ? options.tooltipPrefixClass + '-' : '',
                 $tooltip_text = options.tooltipText || '',
                 $tooltip_content_id = typeof options.tooltipContentId !== 'undefined' ? '#' + options.tooltipContentId : '',
+                $tooltip_content_back_id = typeof options.tooltipContentId !== 'undefined' ? options.tooltipContentId : '',
                 $tooltip_title = options.tooltipTitle || '',
                 $tooltip_close_text = options.tooltipCloseText || 'Close',
                 $tooltip_close_title = options.tooltipCloseTitle || options.tooltipCloseText,
@@ -59,11 +68,20 @@ jQuery(document).ready(function($) {
                 $tooltip_code;
 
             // close tooltip and remove active one
-            $('#js-tooltip').remove();
+            var $old_tooltip = $('#js-tooltip'),
+                id_back_content = $old_tooltip.attr('data-content-back-id');
+
+            if ( id_back_content !== '' ){
+                   var $content = $('#js-tooltip-content'),
+                       $content_back_place = $('#' + id_back_content);
+
+                   $content_back_place.html($content);
+                }
+            $old_tooltip.remove();
             $('.js-tooltip').removeClass('is-active');
 
             // insert code at the end
-            $tooltip_code = '<dialog id="js-tooltip" class="js-dialogtooltip ' + $tooltip_prefix_class + 'tooltip" data-launched-by="click" aria-labelledby="tooltip-title" open aria-modal="true"><div role="document" class="' + $tooltip_prefix_class + 'tooltip__wrapper">';
+            $tooltip_code = '<dialog id="js-tooltip" class="js-dialogtooltip ' + $tooltip_prefix_class + 'tooltip" data-launched-by="click" aria-labelledby="tooltip-title" open aria-modal="true" data-content-back-id="' + $tooltip_content_back_id + '"><div role="document" class="' + $tooltip_prefix_class + 'tooltip__wrapper">';
             $tooltip_code += '<button id="js-tooltip-close" class="' + $tooltip_prefix_class + 'tooltip__close" data-focus-back="' + $tooltip_starter_id + '" title="' + $tooltip_close_title + '" type="button"><span class="' + $tooltip_prefix_class + 'tooltip__closetext__container">';
             if ($tooltip_close_img !== '') {
                 $tooltip_code += '<img src="' + $tooltip_close_img + '" alt="' + $tooltip_close_text + '" class="' + $tooltip_prefix_class + 'tooltip__closeimg" />';
@@ -79,7 +97,10 @@ jQuery(document).ready(function($) {
                 $tooltip_code += '<p>' + $tooltip_text + '</p>';
             } else {
                 if ($tooltip_content_id !== '' && $($tooltip_content_id).length) {
+                    $tooltip_code += '<div id="js-tooltip-content">';
                     $tooltip_code += $($tooltip_content_id).html();
+                    $tooltip_code += '</div>';
+                    $($tooltip_content_id).html('');
                 }
             }
             $tooltip_code += '</div></dialog>';
@@ -113,11 +134,17 @@ jQuery(document).ready(function($) {
     ;
 
     // close button and esc key
-    $body.on('click', '#js-tooltip-close', function(event) {
+    $body.on('click', '#js-tooltip-close', function() {
             var $this = $(this),
-                $tooltip_launched_by = $this.parents('#js-tooltip').attr('data-launched-by'),
-                $focus_back = $('#' + $this.attr('data-focus-back'));
+                $focus_back = $('#' + $this.attr('data-focus-back')),
+                id_back_content = $this.parents('#js-tooltip').attr('data-content-back-id');
 
+            if ( id_back_content !== '' ){
+                   var $content = $('#js-tooltip-content'),
+                       $content_back_place = $('#' + id_back_content);
+
+                   $content_back_place.html($content);
+                }
             $('#js-tooltip').remove();
             $focus_back.focus();
             $focus_back.removeClass('is-active');
