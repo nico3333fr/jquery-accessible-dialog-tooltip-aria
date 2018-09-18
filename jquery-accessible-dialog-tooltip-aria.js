@@ -2,7 +2,7 @@ jQuery(document).ready(function($) {
 
     /*
      * jQuery simple and accessible dialog tooltip window, using ARIA
-     * @version v1.6.0
+     * @version v1.6.1
      * Website: https://a11y.nicolas-hoffmann.net/dialog-tooltip/
      * License MIT: https://github.com/nico3333fr/jquery-accessible-dialog-tooltip-aria/blob/master/LICENSE
      */
@@ -43,7 +43,7 @@ jQuery(document).ready(function($) {
             // if click outside => close
             if ((!$target.is('.js-dialogtooltip') && !$target.is('.js-tooltip') && !$target.closest(".js-dialogtooltip").length) || ($target.is($focus_back))) {
                 if ( id_back_content !== '' ){
-                   var $content = $('#js-tooltip-content'),
+                   var $content = $('#js-tooltip-content').html(),
                        $content_back_place = $('#' + id_back_content);
 
                    $content_back_place.html($content);
@@ -72,7 +72,7 @@ jQuery(document).ready(function($) {
                 id_back_content = $old_tooltip.attr('data-content-back-id');
 
             if ( id_back_content !== '' ){
-                   var $content = $('#js-tooltip-content'),
+                   var $content = $('#js-tooltip-content').html(),
                        $content_back_place = $('#' + id_back_content);
 
                    $content_back_place.html($content);
@@ -140,7 +140,7 @@ jQuery(document).ready(function($) {
                 id_back_content = $this.parents('#js-tooltip').attr('data-content-back-id');
 
             if ( id_back_content !== '' ){
-                   var $content = $('#js-tooltip-content'),
+                   var $content = $('#js-tooltip-content').html(),
                        $content_back_place = $('#' + id_back_content);
 
                    $content_back_place.html($content);
