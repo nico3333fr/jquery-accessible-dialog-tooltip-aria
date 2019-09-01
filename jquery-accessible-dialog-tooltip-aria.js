@@ -2,7 +2,7 @@ jQuery(document).ready(function($) {
 
     /*
      * jQuery simple and accessible dialog tooltip window, using ARIA
-     * @version v1.6.1
+     * @version v1.6.2
      * Website: https://a11y.nicolas-hoffmann.net/dialog-tooltip/
      * License MIT: https://github.com/nico3333fr/jquery-accessible-dialog-tooltip-aria/blob/master/LICENSE
      */
@@ -30,7 +30,7 @@ jQuery(document).ready(function($) {
     }
 
     // jQuery formatted selector to search for focusable items
-    var focusableElementsString = "a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]";
+    var focusableElementsString = "a[href], area[href], input:not([type='hidden']):not([disabled], select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]";
 
 
     // events ------------------
